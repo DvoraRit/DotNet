@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Testers>
+  <Tester>
+    <Tester_Id>316503267</Tester_Id>
+    <Last_Name>ריטרמן</Last_Name>
+    <First_Name>דבורה</First_Name>
+    <DateOfBirth>1967-01-01T00:00:00</DateOfBirth>
+    <Tell_Number>0505967779</Tell_Number>
+    <Gender>נקבה</Gender>
+    <Type_Of_Car>משאית_כבדה</Type_Of_Car>
+    <Type_Of_GearBox>ידנית</Type_Of_GearBox>
+    <Years_Of_Expirience>23</Years_Of_Expirience>
+    <Max_distance_for_test>57</Max_distance_for_test>
+    <Max_of_weekly_tests>14</Max_of_weekly_tests>
+    <Address_Of_The_Tester>
+      <city>ירושלים</city>
+      <street>כנפי נשרים</street>
+      <house_num>12</house_num>
+    </Address_Of_The_Tester>
+    <Num_Of_Tests_In_Every_Week> 52,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</Num_Of_Tests_In_Every_Week>
+    <Days_Of_Work>5,7,True,True,True,True,True,True,True,True,True,True,True,True,True,True,False,True,True,True,True,True,True,True,True,True,True,True,True,True,False,False,False,False,False,False,False</Days_Of_Work>
+  </Tester>
+  <Tester>
+    <Tester_Id>444444444</Tester_Id>
+    <Last_Name>רבינו</Last_Name>
+    <First_Name>משה</First_Name>
+    <DateOfBirth>1966-01-01T00:00:00</DateOfBirth>
+    <Tell_Number>0505767767</Tell_Number>
+    <Gender>זכר</Gender>
+    <Type_Of_Car>רכב_דו_גלגלי</Type_Of_Car>
+    <Type_Of_GearBox>ידנית</Type_Of_GearBox>
+    <Years_Of_Expirience>25</Years_Of_Expirience>
+    <Max_distance_for_test>34</Max_distance_for_test>
+    <Max_of_weekly_tests>7</Max_of_weekly_tests>
+    <Address_Of_The_Tester>
+      <city>חיפה</city>
+      <street>הרצל</street>
+      <house_num>34</house_num>
+    </Address_Of_The_Tester>
+    <Num_Of_Tests_In_Every_Week> 52,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</Num_Of_Tests_In_Every_Week>
+    <Days_Of_Work>5,7,True,True,True,True,True,True,True,False,False,False,False,False,False,False,True,True,True,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False</Days_Of_Work>
+  </Tester>
+</Testers>

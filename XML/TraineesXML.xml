@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Trainees>
+  <Trainee>
+    <trainee_id>200062966</trainee_id>
+    <last_name>שלמן</last_name>
+    <first_name>מיכל</first_name>
+    <dateOfBirth>12-Apr-99 00:00:00</dateOfBirth>
+    <tell_num>0505676676</tell_num>
+    <school_name>על גלגלים</school_name>
+    <Type_of_car>משאית_בינונית</Type_of_car>
+    <Type_of_gearBox>ידנית</Type_of_gearBox>
+    <teacher_name>אבי גבאי</teacher_name>
+    <num_of_drivig_classes>40</num_of_drivig_classes>
+    <Gender>נקבה</Gender>
+    <address>
+      <city>תל אביב</city>
+      <street>אורלוזורוב</street>
+      <house_num>2</house_num>
+    </address>
+  </Trainee>
+  <Trainee>
+    <trainee_id>317688787</trainee_id>
+    <last_name>המכבי</last_name>
+    <first_name>יהודה</first_name>
+    <dateOfBirth>02-Feb-89 00:00:00</dateOfBirth>
+    <tell_num>0505987787</tell_num>
+    <school_name>מעוף</school_name>
+    <Type_of_car>משאית_כבדה</Type_of_car>
+    <Type_of_gearBox>ידנית</Type_of_gearBox>
+    <teacher_name>ראובן לוי</teacher_name>
+    <num_of_drivig_classes>78</num_of_drivig_classes>
+    <Gender>זכר</Gender>
+    <address>
+      <city>ירושלים</city>
+      <street>בית הדפוס</street>
+      <house_num>4</house_num>
+    </address>
+  </Trainee>
+  <Trainee>
+    <trainee_id>333333333</trainee_id>
+    <last_name>פריד</last_name>
+    <first_name>אברהם</first_name>
+    <dateOfBirth>01-Jan-85 00:00:00</dateOfBirth>
+    <tell_num>0584789955</tell_num>
+    <school_name>מעוף</school_name>
+    <Type_of_car>משאית_כבדה</Type_of_car>
+    <Type_of_gearBox>ידנית</Type_of_gearBox>
+    <teacher_name>אבי לוי</teacher_name>
+    <num_of_drivig_classes>87</num_of_drivig_classes>
+    <Gender>זכר</Gender>
+    <address>
+      <city>ירושלים</city>
+      <street>בית הדפוס</street>
+      <house_num>7</house_num>
+    </address>
+  </Trainee>
+  <Trainee>
+    <trainee_id>123456789</trainee_id>
+    <last_name>בן נון</last_name>
+    <first_name>יהושע</first_name>
+    <dateOfBirth>01-Jan-56 00:00:00</dateOfBirth>
+    <tell_num>0502365562</tell_num>
+    <school_name>מעוף</school_name>
+    <Type_of_car>משאית_בינונית</Type_of_car>
+    <Type_of_gearBox>ידנית</Type_of_gearBox>
+    <teacher_name>נורית גרינברג</teacher_name>
+    <num_of_drivig_classes>29</num_of_drivig_classes>
+    <Gender>זכר</Gender>
+    <address>
+      <city>תל אביב</city>
+      <street>אורלוזורוב</street>
+      <house_num>45</house_num>
+    </address>
+  </Trainee>
+  <Trainee>
+    <trainee_id>343528626</trainee_id>
+    <last_name>ריטרמן</last_name>
+    <first_name>שיר</first_name>
+    <dateOfBirth>30/06/1997 00:00:00</dateOfBirth>
+    <tell_num>0509878878</tell_num>
+    <school_name>מעוף</school_name>
+    <Type_of_car>רכב_דו_גלגלי</Type_of_car>
+    <Type_of_gearBox>ידנית</Type_of_gearBox>
+    <teacher_name>נורית גרינברג</teacher_name>
+    <num_of_drivig_classes>56</num_of_drivig_classes>
+    <Gender>נקבה</Gender>
+    <address>
+      <city></city>
+      <street>ההסתדרות</street>
+      <house_num>45</house_num>
+    </address>
+  </Trainee>
+</Trainees>
