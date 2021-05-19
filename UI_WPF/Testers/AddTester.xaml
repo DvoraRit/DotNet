@@ -1,0 +1,207 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI_WPF"
+        xmlns:BE="clr-namespace:BE;assembly=BE" x:Name="AddTesterWindow" x:Class="UI_WPF.AddTester"
+        mc:Ignorable="d"
+        Title="הוספת בוחן" HorizontalContentAlignment="Right" Height="470.167" Width="783" ScrollViewer.HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Right" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
+
+    <Window.Resources>
+        <Style x:Key="TextBoxStyle" TargetType="Control">
+            <Setter Property="HorizontalContentAlignment" Value="Right"/>
+            <Setter Property="Height" Value="23"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="24,17.667,0,14.667"/>
+        </Style>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Right"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+    </Window.Resources>
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <GradientStop Color="#FFF0E1E1" Offset="0"/>
+            <GradientStop Color="#FFE0A9A9" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+
+    <ScrollViewer HorizontalScrollBarVisibility="Visible" Margin="0,0,3.333,-2.667">
+
+        <Grid x:Name="AddTesterGrid" ScrollViewer.HorizontalScrollBarVisibility="Visible" Width="788" Height="443" Background="#FFEEE8E8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" MinHeight="136"/>
+                <RowDefinition Height="Auto" MinHeight="220"/>
+
+            </Grid.RowDefinitions>
+
+            <!--ID!-->
+            <Label 
+               Style="{StaticResource LabelStyle}"
+               Grid.Row="1" Grid.Column="1"  
+               Content=":תעודת זהות" Margin="180,7,64,25.667" Height="Auto"/>
+            <TextBox x:Name="tester_IdTextBox"
+                 Style="{StaticResource TextBoxStyle}"
+                 Text="{Binding Tester_Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+                 Grid.Row="1"  Grid.Column="1" PreviewTextInput="tester_IdTextBox_PreviewTextInput" Margin="24,9,0,29.667" Height="Auto"/>
+
+            <!--First Name!-->
+            <Label Content=":שם פרטי" Grid.Column="1" Grid.Row="1"
+                   Style="{StaticResource LabelStyle}" Margin="180,33,64,0.667" Height="Auto"/>
+            <TextBox x:Name="first_NameTextBox" 
+                     Grid.Column="1" Grid.Row="1" 
+                     Style="{StaticResource TextBoxStyle}"                    
+                     Text="{Binding First_Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="24,37,0,4.667" Height="Auto" />
+
+            <!--Last Name!-->
+            <Label Content=":שם משפחה" Grid.Column="1" Grid.Row="2" 
+                   Style="{StaticResource LabelStyle}"
+                   Margin="180,1.333,64,28.333" Height="Auto" />
+            <TextBox x:Name="last_NameTextBox" 
+                     Grid.Column="1" Grid.Row="2"
+                     Style="{StaticResource TextBoxStyle}"
+                     Text="{Binding Last_Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="24,4.333,0,32.333" Height="Auto"/>
+
+            <!--Gender!-->
+            <Label Content=":מין" Grid.Column="1" Grid.Row="2" 
+                   Style="{StaticResource LabelStyle}"
+                   Margin="180,28.333,64,1.333" Height="Auto"/>
+            <ComboBox x:Name="genderComboBox" 
+                 Grid.Row="2" Grid.Column="1"
+                  Style="{StaticResource TextBoxStyle}"
+                  Text="{Binding Gender}" Margin="24,31.333,0,5.333" Height="Auto">
+                <ListBoxItem Content="זכר"/>
+                <ListBoxItem Content="נקבה"/>
+
+            </ComboBox>
+
+            <!--Date Of Birth!-->
+            <Label Content=":תאריך לידה" Grid.Column="1" Grid.Row="3" 
+              Style="{StaticResource LabelStyle}"
+               Margin="183,0.667,61,19.667" Height="Auto"  />
+
+            <!--Phone Num!-->
+            <Label Content=":מספר טלפון" 
+               Grid.Column="1" Grid.Row="3"
+               Style="{StaticResource LabelStyle}"
+               Margin="184,23.667,60,54.333" Height="Auto" Grid.RowSpan="2" />
+            <TextBox x:Name="tell_NumberTextBox" 
+                 Grid.Column="1" Grid.Row="3" 
+                 Style="{StaticResource TextBoxStyle}"
+                 Text="{Binding Tell_Number, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
+                 VerticalAlignment="Center" PreviewTextInput="tell_NumberTextBox_PreviewTextInput" Margin="24,32.667,0,52.333" Grid.RowSpan="2"/>
+
+            <!--Type Of Car!-->
+            <Label Content=":סוג הרכב עליו בוחן" 
+               Grid.Column="0"  Grid.Row="1"
+               Style="{StaticResource LabelStyle}"
+               Margin="228,1,16,31.667" Height="Auto"/>
+            <ComboBox x:Name="type_Of_CarComboBox"  
+                  HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="24"
+                  Margin="24,5,0,34" Grid.Row="1" Width="120" VerticalAlignment="Center"
+                      Text="{Binding Type_Of_Car}" RenderTransformOrigin="0.575,1.587">
+                <ListBoxItem Content="רכב_פרטי"/>
+                <ListBoxItem Content="משאית_כבדה"/>
+                <ListBoxItem Content="משאית_בינונית"/>
+                <ListBoxItem Content="רכב_דו_גלגלי"/>
+            </ComboBox>
+
+            <!--Type Of Gear!-->
+            <Label Content=":סוג תיבת הילוכים" 
+               Grid.Column="0" Grid.Row="1"
+               Style="{StaticResource LabelStyle}"
+               Margin="228,31,16,2.667" Height="Auto"/>
+            <ComboBox x:Name="type_Of_GearBoxComboBox" 
+                  HorizontalContentAlignment="Right" HorizontalAlignment="Left" 
+                  Height="22" Width="120"
+                  Margin="24,36,0,5" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"
+                      Text="{Binding type_Of_GearBox, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, UpdateSourceTrigger=Explicit}">
+                <ListBoxItem Content="ידנית"/>
+                <ListBoxItem Content="אוטומטית"/>
+            </ComboBox>
+
+            <!--Num Of Expirience!-->
+            <Label Content=":מספר שנות ניסיון"
+              Style="{StaticResource LabelStyle}"
+               Margin="234,1.333,10,28.333" Grid.Row="2" Grid.Column="0" Height="Auto"/>
+            <TextBox x:Name="years_of_expirienceTextBox"
+                     Grid.Row="2" Grid.Column="0"
+                     Style="{StaticResource TextBoxStyle}"
+                     Text="{Binding Years_of_expirience, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="24,4,0,32" Height="Auto"/>
+
+            <!--Max Of Tests In A Week!-->
+            <Label Content=": מספר מקסימלי של טסטים בשבוע" 
+               Grid.Column="0" Grid.Row="2"
+               Style="{StaticResource LabelStyle}"              
+               Margin="160,28.333,10,1.333"  Width="224" Height="Auto"/>
+            <TextBox x:Name="max_of_weekly_testsTextBox" 
+                 Style="{StaticResource TextBoxStyle}"
+                 Grid.Row="2" Grid.Column="0"
+                 Text="{Binding Max_of_weekly_tests, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="24,31.333,0,6.333" Height="Auto"/>
+
+            <!--Max Distance!-->
+            <Label Content=":מרחק מקסימלי לטסט" 
+               Grid.Column="0" Margin="228,1.667,16,74" Grid.Row="3"
+                   Style="{StaticResource LabelStyle}" Height="Auto"/>
+            <TextBox x:Name="max_distance_for_testTextBox"
+                  Grid.Row="3" Grid.Column="0"
+                  Style="{StaticResource TextBoxStyle}"
+                 Text="{Binding Max_distance_for_test, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="24,6.667,0,73.667" Height="Auto"/>
+
+            <Button x:Name="AddButton" Content="אישור" FontSize="20"
+                HorizontalAlignment="Left" Height="37" Margin="24,73,0,0" Grid.Row="6" 
+                VerticalAlignment="Top" Width="96" Click="AddButton_Click" Background="#FF59C2F3" BorderBrush="#FF99D7F3" Foreground="White"/>
+
+            <!--Working Hours!-->
+            <local:tableOfWork x:Name="testerHours" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" Margin="181,28,47,218" Grid.RowSpan="2"/>
+            <Label Content=":שעות עבודה בשבוע" Grid.Column="1" 
+                   HorizontalContentAlignment="Right" 
+                   Margin="188,2.667,47,106.667" Grid.Row="6" FontSize="14"/>
+            <DatePicker x:Name="dateOfBitrthDatePicker" 
+                        HorizontalAlignment="Left" Margin="24,5.667,0,0" 
+                        Grid.Row="3" VerticalAlignment="Top" Grid.Column="1" Width="120" Height="24"/>
+            <StackPanel Margin="0,0,10,0" Grid.ColumnSpan="2" Background="#FF59C2F3"/>
+            <Label Content="הוספת בוחן חדש" FontSize="30" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="50,0,0,0" VerticalAlignment="Top" Grid.Column="1" Foreground="White" Height="50" Width="227"/>
+            <Image HorizontalAlignment="Left" Height="49" Margin="295,1,0,0" VerticalAlignment="Top" Width="52" Grid.Column="1" Source="/UI_WPF;component/images/AddNewWhite.png"/>
+            <Button Content="תפריט ראשי" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" BorderBrush="#FF99D7F3" Background="#FF59C2F3" Foreground="White" Height="20" Click="Button_Click"/>
+            <ComboBox x:Name="CityComboBox" HorizontalAlignment="Left" Margin="24,46.667,0,0" Grid.Row="3" 
+                SelectedItem="{Binding city}"
+                Text="{Binding city}"
+                VerticalAlignment="Top" Width="120" Height="22">
+                <ListBoxItem Content="ירושלים"/>
+                <ListBoxItem Content="תל אביב"/>
+                <ListBoxItem Content="חיפה"/>
+                <ListBoxItem Content="אילת"/>
+                <ListBoxItem Content="באר שבע"/>
+                <ListBoxItem Content="טבריה"/>
+            </ComboBox>
+            <Label Content=":עיר מגורים"  Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="228,38.667,0,0" Grid.Row="3" Height="34" VerticalAlignment="Top"/>
+            <Label Content=":רחוב" HorizontalAlignment="Left" Style="{StaticResource LabelStyle}" Margin="228,72.667,0,0" Grid.Row="3" VerticalAlignment="Top"/>
+            <TextBox x:Name="StreetTextBox" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="23"  Width="120" 
+                Margin="24,79.667,0,0" Grid.Row="3" 
+                VerticalAlignment="Top"  BorderBrush="#FFAEAEAE" Background="White"/>
+            <Label Content=":מספר בית" Style="{StaticResource LabelStyle}" HorizontalAlignment="Left" Margin="297,6,0,0" Grid.Row="6" VerticalAlignment="Top" Width="81"/>
+            <TextBox x:Name="HouseNumTextBox" HorizontalContentAlignment="Right"
+                HorizontalAlignment="Left"  Margin="24,9.667,0,0" Grid.Row="6" 
+                VerticalAlignment="Top" Height="23"  Width="120" Background="White" BorderBrush="#FFAEAEAE"/>
+
+        </Grid>
+    </ScrollViewer>
+</Window>
+ 

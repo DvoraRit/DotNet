@@ -1,0 +1,60 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI_WPF"
+        xmlns:BE="clr-namespace:BE;assembly=BE" x:Name="ShowTrainnes"  x:Class="UI_WPF.ShowTrainees"
+        mc:Ignorable="d"
+        Title="צפייה בנתונים נוספים-תלמידים" Height="496" Width="801" Loaded="ShowTrainnes_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="traineeViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Trainee}, CreateList=True}"/>
+    </Window.Resources>
+    <ScrollViewer>
+        <Grid x:Name="ShowTraineesGrid" Background="#FFE6E6E6" DataContext="{StaticResource traineeViewSource}">
+            <Button x:Name="showAllTrainees" FontSize="15" Content="הצג את כל התלמידים" HorizontalAlignment="Left" Margin="583,115,0,0" VerticalAlignment="Top" Width="165" Height="36" Click="showAllTrainees_Click" Background="#FFA4A1A1" BorderBrush="#FFA4A1A1" Foreground="White"/>
+            <StackPanel HorizontalAlignment="Left" Height="86" Margin="0,1,0,0" VerticalAlignment="Top" Width="775" Background="#FF59C2F3" OpacityMask="#FF99D7F3">
+                <StackPanel Height="100"/>
+            </StackPanel>
+            <Label Content="צפייה בתלמידים" FontSize="25" HorizontalAlignment="Left" Margin="495,22,0,0" VerticalAlignment="Top" Width="191" Foreground="White"/>
+            <Button Content="תפריט ראשי" FontSize="15" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="123" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="Button_Click" Height="51"/>
+            <Image HorizontalAlignment="Left" Height="80" Margin="680,3,0,0" VerticalAlignment="Top" Width="95" Source="/UI_WPF;component/images/talmidlogo.png"/>
+
+            <DataGrid x:Name="traineeDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" Height="Auto" ItemsSource="{Binding}" Margin="57,115,216,196" RowDetailsVisibilityMode="VisibleWhenSelected" Width="Auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="trainee_IdColumn" Binding="{Binding Trainee_Id}" Header="Trainee Id" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="first_NameColumn" Binding="{Binding First_Name}" Header="First Name" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="last_NameColumn" Binding="{Binding Last_Name}" Header="Last Name" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="genderColumn" Binding="{Binding Gender}" Header="Gender" Width="SizeToHeader"/>
+                    <DataGridTemplateColumn x:Name="dateOfBitrthColumn" Header="Date Of Bitrth" Width="SizeToHeader" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding DateOfBitrth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn x:Name="num_Of_Driving_ClassesColumn" Binding="{Binding Num_Of_Driving_Classes}" Header="Num Of Driving Classes" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="school_NameColumn" Binding="{Binding School_Name}" Header="School Name" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="teachers_NameColumn" Binding="{Binding Teachers_Name}" Header="Teachers Name" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="tell_NumberColumn" Binding="{Binding Tell_Number}" Header="Tell Number" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="type_Of_CarColumn" Binding="{Binding Type_Of_Car}" Header="Type Of Car" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="type_Of_GearBoxColumn" Binding="{Binding Type_Of_GearBox}" Header="Type Of Gear Box" Width="SizeToHeader"/>
+                   
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label Content=":להצגת תלמידים לפי קטגוריות" HorizontalAlignment="Left" Margin="583,286,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="traineeGroup" HorizontalAlignment="Left" Margin="628,312,0,0" HorizontalContentAlignment="Right" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged">
+                <ListBoxItem Content="שם בית הספר"/>
+                <ListBoxItem Content="שם מורה"/>
+                <ListBoxItem Content="מספר טסטים"/>
+                <ListBoxItem Content="עיר מגורים"/>
+
+
+            </ComboBox>
+            <ContentControl x:Name="showGroups"  HorizontalAlignment="Left" Margin="57,286,0,0" VerticalAlignment="Top" Height="148" Width="503">
+                <local:GroupingUserControl x:Name="groupingUserControl" />
+            </ContentControl>
+
+        </Grid>
+    </ScrollViewer>
+</Window>

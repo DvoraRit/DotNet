@@ -1,0 +1,52 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI_WPF"
+        xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="UI_WPF.ViewAllTesters"
+        mc:Ignorable="d"
+        Title="צפייה בנתונים נוספים-בוחנים" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="testerViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Tester}, CreateList=True}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource testerViewSource}" Background="#FFE6E6E6" Margin="0,0,0,-53">
+        <Button x:Name="AllTestersButton" Content="לצפייה בכל הבוחנים" FontSize="17" HorizontalAlignment="Left" Height="43" Margin="597,103,0,0" VerticalAlignment="Top" Width="170" Click="AllTestersButton_Click" Background="#FFA4A1A1" BorderBrush="#FFA4A1A1" Foreground="White"/>
+
+        <DataGrid x:Name="testerDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="57,103,226,225" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="first_NameColumn" Binding="{Binding First_Name}" Header="First Name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="last_NameColumn" Binding="{Binding Last_Name}" Header="Last Name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="genderColumn" Binding="{Binding Gender}" Header="Gender" Width="SizeToHeader"/>
+                <DataGridTemplateColumn x:Name="dateOfBitrthColumn" Header="Date Of Bitrth" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding DateOfBitrth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                <DataGridTextColumn x:Name="max_distance_for_testColumn" Binding="{Binding Max_distance_for_test}" Header="Max distance for test" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="max_of_weekly_testsColumn" Binding="{Binding Max_of_weekly_tests}" Header="Max of weekly tests" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="tell_NumberColumn" Binding="{Binding Tell_Number}" Header="Tell Number" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="tester_IdColumn" Binding="{Binding Tester_Id}" Header="Tester Id" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="type_Of_CarColumn" Binding="{Binding Type_Of_Car}" Header="Type Of Car" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="type_Of_GearBoxColumn" Binding="{Binding Type_Of_GearBox}" Header="Type Of Gear Box" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="years_of_expirienceColumn" Binding="{Binding Years_of_expirience}" Header="Years of expirience" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Height="82" VerticalAlignment="Top" Background="#FF59C2F3" OpacityMask="#FF99D7F3"/>
+        <Label Content="צפייה בבוחנים" FontSize="30" HorizontalAlignment="Left" Margin="494,18,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Image Height="76" Margin="698,6,16,0" VerticalAlignment="Top" Source="/UI_WPF;component/images/whiteTester.png"/>
+        <Button Content="תפריט ראשי" FontSize="15" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="98" Background="#FF59C2F3" BorderBrush="#FF99D7F3" Foreground="White" Height="32" Click="Button_Click"/>
+        <Label Content=":להצגת הבוחנים לפי קטגוריות" HorizontalAlignment="Left" Margin="583,286,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="testerGroup" HorizontalAlignment="Left" Margin="628,312,0,0" HorizontalContentAlignment="Right" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged">
+            <ListBoxItem Content="סוג רכב"/>
+            <ListBoxItem Content="סוג תיבת הילוכים"/>
+            <ListBoxItem Content="מספר שנות ניסיון"/>
+        </ComboBox>
+        <ContentControl x:Name="showGroups"  HorizontalAlignment="Left" Margin="57,286,0,0" VerticalAlignment="Top" Height="148" Width="503">
+            <local:GroupingUserControl x:Name="groupingUserControl" />
+        </ContentControl>
+    </Grid>
+</Window>

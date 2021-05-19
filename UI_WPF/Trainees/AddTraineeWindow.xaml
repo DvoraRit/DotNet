@@ -1,0 +1,180 @@
+﻿<Window 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI_WPF"
+        xmlns:BE="clr-namespace:BE;assembly=BE" x:Name="AddTraineeWindow1" x:Class="UI_WPF.AddTraineeWindow"
+        mc:Ignorable="d"
+        Title="הוספת תלמיד חדש" Height="689.873" Width="628.069" Loaded="Window_Loaded_1">
+    <Window.Resources>
+        <CollectionViewSource x:Key="traineeViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Trainee}, CreateList=True}"/>
+    </Window.Resources>
+
+
+    <Grid x:Name="maimGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="433*"/>
+            <ColumnDefinition Width="8*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="AddTraineeGrid" ShowGridLines="false" Grid.ColumnSpan="2" Background="#FFEEE8E8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+
+            </Grid.ColumnDefinitions>
+
+
+            <Label Content=":תעודת זהות" Grid.Column="1" HorizontalContentAlignment="Right" Margin="176,25,0,18" Grid.Row="2" VerticalAlignment="Center" Height="30" HorizontalAlignment="Left" Width="80"/>
+            <TextBox x:Name="trainee_IdTextBox" 
+                     Grid.Column="1" 
+                     HorizontalAlignment="Left" 
+                     Height="23"  Width="120"
+                     Margin="32,25,0,25" 
+                     Grid.Row="2"  
+                     VerticalAlignment="Center" 
+                    
+                     Text="{Binding Trainee_Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, UpdateSourceTrigger=Explicit}" Background="White" BorderBrush="#FFAEAEAE"  
+/>
+
+
+
+
+            <Label Content=":שם פרטי" Grid.Column="1" Margin="202,24,43,25" Grid.Row="3" VerticalAlignment="Center" Height="24"/>
+            <TextBox x:Name="first_NameTextBox" 
+                         Grid.Column="1" 
+                     HorizontalContentAlignment="Right"
+                          Margin="32,24,0,25" Grid.Row="3" 
+                         Text="{Binding First_Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true,UpdateSourceTrigger=Explicit}" 
+                         VerticalAlignment="Center" HorizontalAlignment="Left" Height="24"  Width="120" BorderBrush="#FFAEAEAE" Background="White"/>
+
+
+            <Label Content=":שם משפחה" Grid.Column="1" HorizontalAlignment="Left" Margin="190,26,0,19" Grid.Row="4" VerticalAlignment="Center" Width="77" Height="28"/>
+            <TextBox x:Name="last_NameTextBox" Grid.Column="1" 
+                     HorizontalContentAlignment="Right"
+                     Height="23"  Width="120" Margin="32,26,0,19" 
+                     Grid.Row="4" 
+                         Text="{Binding Last_Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true,UpdateSourceTrigger=Explicit}" 
+                         VerticalAlignment="Center" HorizontalAlignment="Left"  Background="White" BorderBrush="#FFAEAEAE"/>
+
+
+            <Label Content=":מין" Grid.Column="1" HorizontalAlignment="Left" Margin="228,23,0,18" Grid.Row="6" VerticalAlignment="Center" Height="33"/>
+            <ComboBox x:Name="genderComboBox"  Grid.Column="1" Height="23" Margin="32,0,0,28" Grid.Row="6"
+                          Text="{Binding Gender, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, UpdateSourceTrigger=Explicit}" 
+                          SelectedItem="{Binding Gender}" HorizontalContentAlignment="Right" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="120" >
+                <ListBoxItem Content="זכר"/>
+                <ListBoxItem Content="נקבה"/>
+            </ComboBox>
+
+
+            <Label Content=":מספר טלפון" HorizontalAlignment="Left" Margin="203,25,0,20" Grid.Row="7" VerticalAlignment="Center" Width="83" Height="28"/>
+            <TextBox x:Name="tell_NumberTextBox" HorizontalAlignment="Left" Height="22"   Margin="35,25,0,26" Grid.Row="7" 
+                         Text="{Binding Tell_Number, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true,UpdateSourceTrigger=Explicit}" 
+                         HorizontalContentAlignment="Right" VerticalAlignment="Center" Width="120" BorderBrush="#FFAEAEAE" Background="White"/>
+
+
+            <Label Content=":שם בית הספר" HorizontalAlignment="Left" Margin="191,19,0,30" Grid.Row="2" VerticalAlignment="Center" Height="24"/>
+            <TextBox x:Name="school_NameTextBox" HorizontalContentAlignment="Right" HorizontalAlignment="Left"  Margin="35,0,0,25" Grid.Row="2" 
+                         Text="{Binding School_Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true,UpdateSourceTrigger=Explicit}" 
+                         VerticalAlignment="Bottom" Height="24"  Width="120" Background="White" BorderBrush="#FFAEAEAE"/>
+
+
+            <Label Content=":שם המורה" HorizontalAlignment="Left" Margin="208,24,0,25" Grid.Row="3" VerticalAlignment="Center" Height="24"/>
+            <TextBox x:Name="teachers_NameTextBox" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="24"  Width="120" Margin="35,24,0,25" Grid.Row="3" 
+                         Text="{Binding Teachers_Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true,UpdateSourceTrigger=Explicit}" 
+                         VerticalAlignment="Center"  BorderBrush="#FFAEAEAE" Background="White"/>
+
+
+            <Label Content=":מספר שיעורי נהיגה" HorizontalAlignment="Left" Margin="167,23,0,22" Grid.Row="4" VerticalAlignment="Center" Height="28"/>
+            <TextBox x:Name="num_Of_Driving_ClassesTextBox" 
+                     HorizontalAlignment="Left" 
+                     Height="24" 
+                     HorizontalContentAlignment="Right"
+                     Margin="35,25,0,24" 
+                     Grid.Row="4" 
+                         Text="{Binding Num_Of_Driving_Classes, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true,UpdateSourceTrigger=Explicit}" 
+                         VerticalAlignment="Center" 
+                     Width="120" Background="White" BorderBrush="#FFAEAEAE" />
+
+
+            <Label Content=":סוג רכב" HorizontalAlignment="Left" Margin="213,22,0,27" Grid.Row="5" VerticalAlignment="Center" Width="66" Height="24"/>
+            <ComboBox x:Name="type_Of_CarComboBox" HorizontalAlignment="Left" Height="24" Margin="35,22,0,27" Grid.Row="5" VerticalAlignment="Center" Width="120" 
+                          Text="{Binding Type_Of_Car}" 
+                          SelectedItem="{Binding Type_Of_Car}" HorizontalContentAlignment="Right" >
+                <ListBoxItem Content="רכב_פרטי"/>
+                <ListBoxItem Content="משאית_כבדה"/>
+                <ListBoxItem Content="משאית_בינונית"/>
+                <ListBoxItem Content="רכב_דו_גלגלי"/>
+            </ComboBox>
+
+
+            <Label Content=":סוג תיבת הילוכים" HorizontalAlignment="Left" Margin="174,27,0,18" Grid.Row="6" VerticalAlignment="Center" Width="105" Height="29"/>
+            <ComboBox x:Name="type_Of_GearBoxComboBox" HorizontalAlignment="Left"  Margin="35,27,0,24" Grid.Row="6" VerticalAlignment="Center" Height="23"  Width="120"
+                          Text="{Binding Type_Of_GearBox, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, UpdateSourceTrigger=Explicit}" 
+                          SelectedItem="{Binding Type_Of_GearBox}" HorizontalContentAlignment="Right" >
+                <ListBoxItem Content="ידנית"/>
+                <ListBoxItem Content="אוטומטית"/>
+            </ComboBox>
+
+
+            <Label Content=":תאריך לידה" Grid.Column="1" HorizontalAlignment="Left" Margin="197,22,0,10" Grid.Row="5" VerticalAlignment="Center" Width="80" Height="41"/>
+
+            <ComboBox x:Name="CityComboBox" Grid.Column="1" HorizontalAlignment="Left" Margin="32,26,0,0" Grid.Row="7" 
+                      SelectedItem="{Binding city}"
+                      Text="{Binding city}"
+                      VerticalAlignment="Top" Width="120">
+                <ListBoxItem Content="ירושלים"/>
+                <ListBoxItem Content="תל אביב"/>
+                <ListBoxItem Content="חיפה"/>
+                <ListBoxItem Content="אילת"/>
+                <ListBoxItem Content="באר שבע"/>
+                <ListBoxItem Content="טבריה"/>
+            </ComboBox>
+            <Label Content=":עיר מגורים" Grid.Column="1" HorizontalAlignment="Left" Margin="202,26,0,0" Grid.Row="7" Height="26" VerticalAlignment="Top" Width="75"/>
+
+            <Label Content=":רחוב" Grid.Column="1" HorizontalAlignment="Left" Margin="228,26,0,0" Grid.Row="8" VerticalAlignment="Top"/>
+            <TextBox x:Name="StreetTextBox" Grid.Column="1" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="23"  Width="120" 
+                     Margin="32,29,0,0" Grid.Row="8" 
+                     VerticalAlignment="Top"  BorderBrush="#FFAEAEAE" Background="White"/>
+            <Label Content=":מספר בית" HorizontalAlignment="Left" Margin="211,24,0,0" Grid.Row="9" VerticalAlignment="Top" Width="66" Grid.Column="1"/>
+            <TextBox x:Name="HouseNumTextBox" HorizontalContentAlignment="Right"
+                     Grid.Column="1" HorizontalAlignment="Left"  Margin="32,27,0,0" Grid.Row="9" 
+                     VerticalAlignment="Top" Height="23"  Width="120" Background="White" BorderBrush="#FFAEAEAE"/>
+            <DatePicker x:Name="dateOfBitrthDatePicker" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="32,22,0,0" Grid.Row="5" VerticalAlignment="Top" Width="120"/>
+            <Border BorderBrush="#FF59C2F3" BorderThickness="1" Grid.ColumnSpan="2" Height="80" VerticalAlignment="Top" Background="#FF59C2F3" Grid.RowSpan="3"/>
+            <Label Content="הוספת תלמיד חדש" HorizontalContentAlignment="Right" FontSize="30" HorizontalAlignment="Left" Margin="235,10,0,0" VerticalAlignment="Top" Width="298" Height="48" Foreground="White" Grid.ColumnSpan="2"/>
+            <Button x:Name="back_button" Content="תפריט ראשי" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="24,17,0,0" Background="#FF59C2F3" BorderBrush="#FF59C2F3" Foreground="#FFFDFDFD" Click="back_button_Click"/>
+            <Image Grid.Column="1" HorizontalAlignment="Left" Height="62" Margin="231,5,0,0" VerticalAlignment="Top" Width="72" Source="/UI_WPF;component/images/AddNewWhite.png"/>
+        </Grid>
+        <Button Content="אישור" IsEnabled="{Binding ElementName=genderComboBox, Path=SelectedItem}" HorizontalAlignment="Left" Margin="30,606,0,0" VerticalAlignment="Top" Width="70" Height="30" Background="#FF59C2F3" Click="Button_Click" Foreground="#FFFDFDFD" BorderBrush="#FF59C2F3">
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=trainee_IdTextBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=first_NameTextBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=last_NameTextBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="false"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</Window>

@@ -1,0 +1,44 @@
+﻿<UserControl x:Name="TableOfWork" x:Class="UI_WPF.tableOfWork"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI_WPF"
+             mc:Ignorable="d" Height="109.667" Width="560">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition Width="110"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24.444"/>
+            <RowDefinition Height="22.222"/>
+            <RowDefinition Height="68"/>
+            <RowDefinition Height="68"/>
+        </Grid.RowDefinitions>
+
+        <Label  Grid.Column="0" Grid.Row="0" Content="חמישי" HorizontalContentAlignment="Right" Margin="1,0,2,20.667" Grid.RowSpan="2"/>
+        <Label  Grid.Column="1" Grid.Row="0" Content="רביעי" HorizontalContentAlignment="Right" Margin="1,0,2,20.667"  Grid.RowSpan="2" />
+        <Label  Grid.Column="1" Grid.Row="0" Content="שלישי" HorizontalContentAlignment="Right" Margin="109,0,3,21.667" Grid.RowSpan="2" Grid.ColumnSpan="2" />
+        <Label  Grid.Column="3" Content="שני" HorizontalContentAlignment="Right" Margin="3,0,0,20.667" Grid.RowSpan="2"/>
+        <Label  Grid.Column="4" Grid.Row="0" Content="ראשון" HorizontalContentAlignment="Right" Margin="0,0,-2,20.667" Grid.RowSpan="2"/>
+
+        <CheckBox Grid.Column="0" Grid.Row="1" x:Name="thursdayCheckBox"  Margin="93,1.333,2,0" VerticalAlignment="Top" Grid.RowSpan="2" Height="21" RenderTransformOrigin="1.093,0.492"/>
+        <CheckBox Grid.Column="1" x:Name="wednesdayCheckBox" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Margin="0,1.333,0,67.667" Grid.Row="1"  Width="19" Grid.RowSpan="2"/>
+        <CheckBox Grid.Column="2"  x:Name="tuesdayCheckBox" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="0,1.333,0,59.667" Grid.Row="1" Width="19" Grid.RowSpan="2" />
+        <CheckBox Grid.Column="3" x:Name="mondayCheckBox" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="0,1.333,0,59.667" Grid.Row="1" Width="19" Grid.RowSpan="2" RenderTransformOrigin="1.531,0.37" />
+        <CheckBox Grid.Column="4" Grid.Row="1" x:Name="sundayCheckBox" HorizontalContentAlignment="Right" Margin="0,1.333,1,58.667"  Width="19" 
+                   Grid.RowSpan="2" HorizontalAlignment="Right" />
+
+        <local:testerHour  x:Name="thursdayHours" Grid.Row="2" Grid.Column="0" Margin="1,0.333,2,11.667" IsEnabled="{Binding ElementName=thursdayCheckBox, Path=IsChecked}"/>
+        <local:testerHour  x:Name="wensdayHours" Grid.Row="2" Grid.Column="1" Margin="1,0.333,2,11.667" IsEnabled="{Binding ElementName=wednesdayCheckBox, Path=IsChecked}"/>
+        <local:testerHour  x:Name="tuesdayHours" Grid.Row="2" Grid.Column="2" Margin="1,0.333,2,11.667" IsEnabled="{Binding ElementName=tuesdayCheckBox,Path=IsChecked}"/>
+        <local:testerHour  x:Name="mondayHours" Grid.Row="2" Grid.Column="3" Margin="1,0.333,2,11.667" IsEnabled="{Binding ElementName=mondayCheckBox,Path=IsChecked}"/>
+        <local:testerHour  x:Name="sundayHours" Grid.Row="2" Grid.Column="4" Margin="1,0.333,-12,11.667" IsEnabled="{Binding ElementName=sundayCheckBox,Path=IsChecked}"/>
+
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,29 @@
+﻿<Window x:Name="mainWindow" x:Class="UI_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI_WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="524">
+
+    <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Background="#FF99D7F3" Margin="10,0,2,0">
+        <Image Source="images\road.jpg" HorizontalAlignment="Left" Height="266" Margin="0,-103,0,0" VerticalAlignment="Top" Width="504" Opacity="0.5"/>
+
+        <TextBlock x:Name="TextWelcome" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center" FontStretch="ExtraExpanded" FontWeight="Bold" Margin="34,40,0,0" FontSize="48" Height="64" Width="418" Foreground="White" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.414"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform><Run FlowDirection="RightToLeft" Text="רישום למבחן נהיגה" /></TextBlock>
+        <Button x:Name="ButtonTraineeEntrence" Content="כניסת תלמידים" FontSize="30" HorizontalAlignment="Left" Height="48" Margin="94,185,0,0" Width="248" VerticalAlignment="Top" HorizontalContentAlignment="Center" Click="ButtonTraineeEntrence_Click" Background="#FFA4A1A1" BorderBrush="#FFA4A1A1" Foreground="#FFFBF7F7"/>
+        <Button x:Name="ButtonTestersEntrence" Content="כניסת בוחנים" FontSize="30" HorizontalAlignment="Left" Height="48" Margin="94,264,0,0" VerticalAlignment="Top" Width="248" Click="ButtonTestersEntrence_Click" Background="#FFA4A1A1" BorderBrush="#FFA4A1A1" Foreground="White"/>
+        <Button Content="צפייה בנתונים נוספים" HorizontalAlignment="Left" Margin="94,343,0,0" VerticalAlignment="Top" Width="248" Height="49" FontSize="20" Background="#FFA4A1A1" Foreground="White" BorderBrush="#FFA4A1A1" Click="Button_Click"/>
+        <Image Source="images\trainee.png" HorizontalAlignment="Left" Height="78" Margin="351,177,0,0" VerticalAlignment="Top" Width="79"/>
+        <Image Source="images\tester.png" HorizontalAlignment="Left" Height="105" Margin="338,235,0,0" VerticalAlignment="Top" Width="130"/>
+
+    </Grid>
+</Window>

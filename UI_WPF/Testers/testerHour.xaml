@@ -1,0 +1,44 @@
+﻿<UserControl x:Name="TesterHour" x:Class="UI_WPF.testerHour"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+              xmlns:local="clr-namespace:UI_WPF"
+             mc:Ignorable="d" Height="56.111" Width="100">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="45"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="1" Grid.Row="0" Content="התחלה" Margin="1.333,1,-52,0.667" HorizontalContentAlignment="Right"/>
+        <ComboBox x:Name="BeginComboBoxHour" Grid.Row="0" Grid.Column="0" Margin="1,0,1.333,0.667" HorizontalContentAlignment="Right">
+            <ListBoxItem Content="9"/>
+            <ListBoxItem Content="10"/>
+            <ListBoxItem Content="11"/>
+            <ListBoxItem Content="12"/>
+            <ListBoxItem Content="13"/>
+            <ListBoxItem Content="14"/>
+            <ListBoxItem Content="15"/>
+        </ComboBox>
+
+        <Label Grid.Column="1" Content="סיום" HorizontalContentAlignment="Right" Margin="1.333,1.333,-52,-3.667" Grid.Row="1"/>
+        <ComboBox x:Name="EndComboBoxHour" Grid.Row="1" Grid.Column="0" Margin="1,1.333,1.333,-3.667" HorizontalContentAlignment="Right">
+            <ListBoxItem Content="9"/>
+            <ListBoxItem Content="10"/>
+            <ListBoxItem Content="11"/>
+            <ListBoxItem Content="12"/>
+            <ListBoxItem Content="13"/>
+            <ListBoxItem Content="14"/>
+            <ListBoxItem Content="15"/>
+        </ComboBox>
+
+    </Grid>
+
+
+</UserControl>

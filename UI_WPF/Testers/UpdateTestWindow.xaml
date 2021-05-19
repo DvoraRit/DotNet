@@ -1,0 +1,109 @@
+﻿<Window x:Name="updateTestWindow" x:Class="UI_WPF.UpdateTest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI_WPF"
+        mc:Ignorable="d"
+        Title="עדכון מבחן" Height="623" Width="800">
+    <Window.Resources>
+        <local:BooleanToEnumConverter x:Key="booleanToEnumConverter"/>
+        <Style x:Key="CheckBoxSTyle" TargetType="CheckBox">
+            <Setter Property="FlowDirection" Value="RightToLeft" />
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Width" Value="237"/>
+            <Setter Property="Height" Value="21"/>
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <ContentControl FlowDirection="LeftToRight" Content="{Binding}" />
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid x:Name="UpdateTestGrid">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFAF6E9" Offset="0"/>
+                <GradientStop Color="#FFF1F1F1" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Label Content=":בחר מספר מבחן" FontSize="20"
+               HorizontalAlignment="Left" Margin="597,119,0,0" 
+               VerticalAlignment="Top" Height="46" Width="163"/>
+        <ComboBox x:Name="testIDComboBox" Margin="490,119,207,0" 
+                  VerticalAlignment="Top" Height="46"
+                  Text="{Binding Num_Of_Test}" 
+                  HorizontalContentAlignment="Right"
+                  SelectionChanged="testIDComboBox_SelectionChanged"/>
+        <CheckBox x:Name="CheckBoxIsBreak" Content="התלמיד לא נבלם במהלך המבחן" 
+                  Style="{StaticResource CheckBoxSTyle}"
+                  IsChecked="{Binding tester_break, Converter={StaticResource booleanToEnumConverter}}"
+                  HorizontalAlignment="Right" Margin="0,316,30,0" 
+                  VerticalAlignment="Top" Height="23" Width="238"/>
+        <CheckBox x:Name="CheckBoxIsTouch" Content="לא היה צורך לגעת בהגה בזמן המבחן" 
+                  Style="{StaticResource CheckBoxSTyle}"
+                  IsChecked="{Binding tester_touch_weel,Converter={StaticResource booleanToEnumConverter}}"
+                  HorizontalAlignment="Left" Margin="524,342,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="CheckBoxSavedDist" Content="שמירת מרחק" 
+                  Style="{StaticResource CheckBoxSTyle}"
+                  IsChecked="{Binding saved_distance,Converter={StaticResource booleanToEnumConverter}}"
+                  HorizontalAlignment="Left" Margin="110,331,0,0" VerticalAlignment="Top" />
+        <Label Content=":האם התלמיד הקפיד על" FontSize="16"
+               HorizontalAlignment="Left" HorizontalContentAlignment="Right"
+               Height="38" Margin="156,288,0,0" 
+               VerticalAlignment="Top" Width="191"/>
+        <CheckBox x:Name="CheckBoxRevrsPark" Content="חניה ברוורס" 
+                  Style="{StaticResource CheckBoxSTyle}"
+                  IsChecked="{Binding reverse_parking,Converter={StaticResource booleanToEnumConverter}}"
+                  HorizontalAlignment="Left" Margin="110,357,0,0" VerticalAlignment="Top" />
+        <CheckBox x:Name="CheckBoxMirrorLook" Content="הסתכלות במראות" 
+                  Style="{StaticResource CheckBoxSTyle}"
+                  IsChecked="{Binding mirror_checked,Converter={StaticResource booleanToEnumConverter}}"
+                  HorizontalAlignment="Left" Margin="110,383,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="CheckBoxSignal" Content="איתותים נכונים בעת הצורך" 
+                  Style="{StaticResource CheckBoxSTyle}"
+                  IsChecked="{Binding signaled,Converter={StaticResource booleanToEnumConverter}}"
+                  HorizontalAlignment="Left" Margin="110,409,0,0" 
+                  VerticalAlignment="Top"/>
+        <CheckBox x:Name="CheckBoxPrioraty" Content="נתינת זכות קדימה מתאימה" 
+                  Style="{StaticResource CheckBoxSTyle}"
+                  IsChecked="{Binding gave_priority,Converter={StaticResource booleanToEnumConverter}}"
+                  HorizontalAlignment="Left" Margin="110,435,0,0" 
+                  VerticalAlignment="Top"/>
+        <CheckBox x:Name="CheckBoxTrafficSigns" Content="ציות נכון לרמזורים" 
+                  Style="{StaticResource CheckBoxSTyle}"
+                  IsChecked="{Binding compliance_traffic_signs,Converter={StaticResource booleanToEnumConverter}}"
+                  HorizontalAlignment="Left" Margin="110,487,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="CheckBoxSpeed" Content=" מהירות מתאימה לתנאי הכביש" 
+                  Style="{StaticResource CheckBoxSTyle}"
+                  IsChecked="{Binding speed,Converter={StaticResource booleanToEnumConverter}}"
+                  HorizontalAlignment="Left" Margin="110,461,0,0" VerticalAlignment="Top" />
+        <Label Content=":בוחן, האם במהלך המבחן היה צורך ל" 
+               HorizontalAlignment="Left" HorizontalContentAlignment="Right"
+               Height="38" Margin="490,273,0,0" 
+               FontSize="16"
+               VerticalAlignment="Top" Width="272"/>
+        <Label Content=":הערות נוספות" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Height="24" Margin="645,383,0,0" VerticalAlignment="Top" Width="115"/>
+        <TextBox x:Name="commentsTextBox" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Height="96" Margin="499,412,0,0" Text="הכנס הערות נוספות" VerticalAlignment="Top" Width="261" MouseDoubleClick="commentsTextBox_MouseDoubleClick"/>
+        <Button x:Name="OKbutton" Content="עדכן פרטי מבחן" FontSize="15" HorizontalAlignment="Left" Height="37" Margin="33,534,0,0" VerticalAlignment="Top" Width="129" Click="OKbutton_Click" Background="#FF59C2F3" BorderBrush="#FF59C2F3" Foreground="White"/>
+        <StackPanel Height="91" VerticalAlignment="Top" Background="#FF59C2F3" Margin="0,0,0.333,0"/>
+        <Grid HorizontalAlignment="Left" Height="89" Margin="10,170,0,0" VerticalAlignment="Top" Width="773">
+            <Label Content=":תאריך המבחן" HorizontalAlignment="Left" Height="25" Margin="652,25,0,0" VerticalAlignment="Top" Width="87" BorderBrush="#FF161010"/>
+            <Label x:Name="dateOfTestLabel" HorizontalAlignment="Left" Height="25" Margin="568,25,0,0" VerticalAlignment="Top" Width="79"/>
+            <Label Content=":שעת המבחן" HorizontalAlignment="Left" Height="25" Margin="463,25,0,0" VerticalAlignment="Top" Width="87"/>
+            <Label x:Name="hourOfTest" HorizontalAlignment="Left" Height="25" Margin="379,25,0,0" VerticalAlignment="Top" Width="79"/>
+            <Label Content=":סוג הרכב עליו בוצע המבחן" HorizontalAlignment="Left" Height="25" Margin="177,25,0,0" VerticalAlignment="Top" Width="150"/>
+            <Label x:Name="typeOfCarOfTest" HorizontalAlignment="Left" Height="25" Margin="50,25,0,0" VerticalAlignment="Top" Width="113"/>
+        </Grid>
+        <Label Content="עדכון פרטי מבחן" FontSize="30" HorizontalAlignment="Left" Margin="479,10,0,0" VerticalAlignment="Top" Height="53" Width="222" Foreground="White"/>
+        <Image HorizontalAlignment="Left" Height="91" Margin="701,0,0,0" VerticalAlignment="Top" Width="91" Source="/UI_WPF;component/images/editwhite.png"/>
+        <Button x:Name="back_button" Content="תפריט ראשי" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Margin="24,17,0,0" Background="#FF59C2F3" BorderBrush="#FF59C2F3" Foreground="#FFFDFDFD" Click="back_button_Click" Height="46"/>
+
+
+
+    </Grid>
+</Window>
